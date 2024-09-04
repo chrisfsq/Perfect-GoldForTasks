@@ -20,7 +20,7 @@ $config['item'] = array(
 );
 
 $config['discord'] = array(
-    'webhook_url' => 'https://discord.com/api/webhooks/1273378049433534464/e7CRBpzx_BvmKisKDk8cwbtlaAUZyg-civ0chgWHd0sqrAmSpqcHeIhoaoAl2Iu8OEfX'
+    'webhook_url' => ''
 );
 
 
