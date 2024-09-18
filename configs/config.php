@@ -1,28 +1,9 @@
 <?php
-//BONUS FUNCTION CONFIGS
-$config['gmID'] = "1074"; 
-$config['gmNick'] = "Chupacu";
+//PROTOCOL SETTINGS, DO NOT CHANGE.
 $config['serverversion'] = "151";
-$config['bonusType'] = "gold"; //change to "gold" for sendmail bonus cash
-$config['pdpBonus'] = "5"; //Quantidade de pontos que vai converter para premio
-$config['money'] = "10";
-$config['item'] = array(
-    'id' => "12979",
-    'pos' => "0",
-    'count' => "100",
-    'max_count' => "1000",
-    'data' => "",
-    'proctype' => "8",
-    'expire_date' => "0",
-    'guid1' => "0",
-    'guid2' => "0",
-    'mask' => "0"
-);
 
-$config['discord'] = array(
-    'webhook_url' => ''
-);
-
+$config['missionToMonitor'] = 33469;  // Task ID success for gaining gold
+$config['goldAmount'] = 1000; // base value of gold to be sent
 
 //MYSQL CONFIGS
 $config['mysql'] = array(
@@ -41,13 +22,7 @@ $config['ports'] = [
     "gacd" => 29300,
 ];
 
-
-$config['chanel'] = 9; //canal de chat
-$config['goldBonus'] = 10000;
-$config['proxy_ips'] = '';
-
-
-
+$config['chanel'] = 9; //chat channel
 
 //PROTOCOL SETTINGS, DO NOT CHANGE.
 $config['s_block'] = false;

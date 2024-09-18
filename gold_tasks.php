@@ -10,7 +10,7 @@ function insertGold($line = null)
     global $config;
     global $api;
 
-    echo "insertGold called with line: $line\n"; // log para depuração
+    echo "insertGold called with line: $line\n"; // log
 
     $conn = new mysqli($config['mysql']['host'], $config['mysql']['user'], $config['mysql']['password'], $config['mysql']['db']);
 
@@ -23,8 +23,8 @@ function insertGold($line = null)
         $roleID = $matches[1];
         $missionID = $matches[2];
 
-        // ID da tasks que será monitorada
-        $missionToMonitor = 33469;
+        // Task ID success for gaining gold
+        $missionToMonitor = $config['missionToMonitor'];
 
         if ($missionID == $missionToMonitor) {
  
@@ -39,19 +39,19 @@ function insertGold($line = null)
                 $userId = $idAcc['userid'];
                 $roleName = $idAcc['name'];
 
-                $din = 1000 * 100; //quantidade de gold a ser enviada, muda só o primeiro valor "1000"
+                $din = $config['goldAmount'] * 100;
                 
-                echo "Calling chatInGame for $roleName\n"; // log para depuração
+                echo "Calling chatInGame for $roleName\n"; // log
                 $api->chatInGame("$roleName won $din gold's because he completed the mission $missionID successfully!");
 
-                echo "Gold sent to user $userId\n"; // log para depuração
+                echo "Gold sent to user $userId\n"; // log
                 $api->sendGold($userId, $din);
 
                 $query = $conn->prepare("INSERT INTO rewards_log (role_id, mission_id) VALUES (?, ?)");
                 $query->bind_param("ii", $roleID, $missionID);
                 $query->execute();
             } else {
-                echo "Reward already given for mission $missionID\n"; // log para depuração
+                echo "Reward already given for mission $missionID\n"; // log
             }
 
             $query->close();
