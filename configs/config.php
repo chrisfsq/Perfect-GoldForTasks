@@ -2,8 +2,16 @@
 //PROTOCOL SETTINGS, DO NOT CHANGE.
 $config['serverversion'] = "151";
 
-$config['missionToMonitor'] = 33469;  // Task ID success for gaining gold
-$config['goldAmount'] = 1000; // base value of gold to be sent
+
+$config = [
+    // Add missions and gold amounts here
+    'missionsGoldMap' => [
+        60101 => 50, // task 60101 gives 50 gold
+        60102 => 100, // task 60102 gives 100 gold
+        60103 => 200, // task 60103 gives 200 gold
+        // Add more task as needed
+    ]
+];
 
 //MYSQL CONFIGS
 $config['mysql'] = array(
