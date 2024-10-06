@@ -47,7 +47,18 @@ function insertGold($line = null)
             $api->chatInGame("$roleName won $goldAmount gold's because he completed the mission $missionID successfully!");
 
             echo "Gold sent to user $userId\n"; // log
-            $api->sendGold($userId, $goldAmount);
+            //$api->sendGold($userId, $goldAmount);
+            $stmt = $conn->prepare("CALL usecash(?, ?, ?, ?, ?, ?, ?, ?)");
+            $param1 = 1;
+            $param2 = 0;
+            $param3 = 1;
+            $param4 = 0;
+            $param5 = 1;
+            $error = 0;
+            $stmt->bind_param("iiiiiiii", $userId, $param1, $param2, $param3, $param4, $goldAmount, $param5, $error);
+            $stmt->execute();
+
+            $stmt->close();
 
             $query = $conn->prepare("INSERT INTO rewards_log (role_id, mission_id) VALUES (?, ?)");
             $query->bind_param("ii", $roleID, $missionID);
