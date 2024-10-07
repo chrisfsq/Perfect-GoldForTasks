@@ -3,14 +3,11 @@
 $config['serverversion'] = "151";
 
 
-$config = [
-    // Add missions and gold amounts here
-    'missionsGoldMap' => [
-        60101 => 50, // task 60101 gives 50 gold
-        60102 => 100, // task 60102 gives 100 gold
-        60103 => 200, // task 60103 gives 200 gold
-        // Add more task as needed
-    ]
+$config['missionsGoldMap'] = [
+    33469 => 50, // task 60101 gives 50 gold
+    60102 => 100, // task 60102 gives 100 gold
+    60103 => 200, // task 60103 gives 200 gold
+    // Add more tasks as needed
 ];
 
 //MYSQL CONFIGS
