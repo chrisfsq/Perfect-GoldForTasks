@@ -42,9 +42,10 @@ function insertGold($line = null)
             $userId = $idAcc['userid'];
             $roleName = $idAcc['name'];
             $goldAmount = $missionsGoldMap[$missionID] * 100;
+            $goldToShow = $missionsGoldMap[$missionID];
 
             echo "Calling chatInGame for $roleName\n"; // log
-            $api->chatInGame("$roleName won $goldAmount gold's because he completed the mission $missionID successfully!");
+            $api->chatInGame("$roleName won $goldToShow gold's because he completed the mission $missionID successfully!");
 
             echo "Gold sent to user $userId\n"; // log
             //$api->sendGold($userId, $goldAmount);
